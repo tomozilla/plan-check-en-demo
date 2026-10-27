@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan check (sample)</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0; background: #f6f7f8; color: #1c1c1c; }
+  main { max-width: 860px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .sub { color: #555; font-size: 14px; margin-bottom: 16px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 16px; }
+  label { display: block; font-size: 13px; margin: 10px 0 2px; color: #333; }
+  input, select { width: 100%; box-sizing: border-box; padding: 6px 8px; font-size: 14px; }
+  .row { display: flex; gap: 8px; align-items: center; margin-top: 8px; font-size: 14px; }
+  .row input { width: auto; }
+  .plan { font-size: 28px; font-weight: 700; margin: 0; }
+  .price { font-size: 20px; margin: 4px 0 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  td { padding: 4px 0; border-bottom: 1px solid #eee; }
+  td:last-child { text-align: right; }
+  ul { padding-left: 18px; font-size: 14px; }
+  .warn { background: #fff4e5; border: 1px solid #f0c27b; padding: 8px 10px; border-radius: 6px; font-size: 13px; margin-bottom: 12px; }
+  .err { background: #fdecea; border: 1px solid #e5a29b; }
+  .foot { font-size: 12px; color: #666; margin-top: 12px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Plan check (sample)</h1>
+  <div class="sub">Answer a few questions. It suggests a plan and a rough monthly cost. Not an official tool, not a quote.</div>
+  <div id="banner"></div>
+  <div class="grid">
+    <form class="card" id="form" autocomplete="off">
+      <label for="use">What are you building?</label>
+      <select id="use">
+        <option value="prototype">A prototype / learning project</option>
+        <option value="internal">An internal tool (a few to a few dozen people)</option>
+        <option value="customer">A customer-facing service</option>
+        <option value="enterprise">Large scale / custom terms</option>
+      </select>
+      <label for="projects">Number of projects (dev + prod count as 2)</label>
+      <input id="projects" type="number" min="1" max="50" value="1">
+      <label for="mau">Monthly active users</label>
+      <input id="mau" type="number" min="0" value="100">
+      <label for="dbGb">Database size (GB)</label>
+      <input id="dbGb" type="number" min="0" step="0.01" value="0.05">
+      <label for="storageGb">File storage (GB)</label>
+      <input id="storageGb" type="number" min="0" step="0.01" value="0.1">
+      <label for="egressGb">Traffic out per month (GB)</label>
+      <input id="egressGb" type="number" min="0" step="0.1" value="1">
+      <label for="restore">If data is lost, how far back must you restore?</label>
+      <select id="restore">
+        <option value="none">No need</option>
+        <option value="daily">Yesterday is fine (daily backup)</option>
+        <option value="pitr">To the minute (point-in-time recovery)</option>
+      </select>
+      <label for="compute">Compute size per project</label>
+      <select id="compute">
+        <option value="micro">Micro</option><option value="small">Small</option>
+        <option value="medium">Medium</option><option value="large">Large</option><option value="xl">XL</option>
+      </select>
+      <div class="row"><input id="alwaysOn" type="checkbox"><label for="alwaysOn" style="margin:0">It must never pause (people use it every day)</label></div>
+      <div class="row"><input id="sso" type="checkbox"><label for="sso" style="margin:0">Company login (SSO) for the dashboard</label></div>
+      <div class="row"><input id="compliance" type="checkbox"><label for="compliance" style="margin:0">Security certificates are required (SOC2 / ISO 27001)</label></div>
+      <div class="row"><input id="backup14" type="checkbox"><label for="backup14" style="margin:0">14 days of daily backups</label></div>
+    </form>
+    <section class="card" id="result" aria-live="polite"></section>
+  </div>
+  <div class="foot" id="foot"></div>
+</main>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

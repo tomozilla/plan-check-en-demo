@@ -1,0 +1,13 @@
+{
+  "asOf": "2026-10-27",
+  "source": "https://supabase.com/pricing (read by hand; check it again before relying on any number)",
+  "currency": "USD",
+  "plans": {
+    "free": { "label": "Free", "base": 0, "maxActiveProjects": 2, "dbGb": 0.5, "storageGb": 1, "egressGb": 5, "mau": 50000, "backupDays": 0, "pausesAfterIdle": true },
+    "pro": { "label": "Pro", "base": 25, "dbGb": 8, "storageGb": 100, "egressGb": 250, "mau": 100000, "backupDays": 7, "computeCredit": 10, "over": { "dbGb": 0.125, "storageGb": 0.0213, "egressGb": 0.09, "mau": 0.00325 } },
+    "team": { "label": "Team", "base": 599, "dbGb": 8, "storageGb": 100, "egressGb": 250, "mau": 100000, "backupDays": 14, "computeCredit": 10, "over": { "dbGb": 0.125, "storageGb": 0.0213, "egressGb": 0.09, "mau": 0.00325 } },
+    "enterprise": { "label": "Enterprise", "base": null }
+  },
+  "compute": { "micro": 10, "small": 15, "medium": 60, "large": 110, "xl": 210 },
+  "pitrPer7Days": 100
+}
