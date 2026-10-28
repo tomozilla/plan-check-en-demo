@@ -4,7 +4,7 @@ A small learning demo: answer a few questions and get a suggested Supabase plan 
 
 > **A personal learning project.** Not an official tool of any company, not a quote. The rules are my own reading of the pricing page, not an official recommendation.
 
-This is the code for the Dev.to article: TODO-DEVTO-URL
+This is the code for the Dev.to article: https://dev.to/tomozilla/free-pro-team-enterprise-what-each-supabase-plan-gives-you-mapped-to-real-use-cases-plus-a-4o2i
 
 ## Files
 
